@@ -18,9 +18,10 @@ export function EventMarquee() {
       <ul className="flex flex-wrap gap-x-6 gap-y-2 px-4 py-3 font-work-sans text-sm font-bold uppercase tracking-wide text-[#1C1917]">
         {items.map((t) => (
           <li key={t} className="flex items-center gap-3">
-            <span aria-hidden className="text-[#8C1515]">
-              ✳
-            </span>
+            <span
+              aria-hidden
+              className="inline-block h-2 w-2 shrink-0 rotate-45 bg-[#8C1515]"
+            />
             {t}
           </li>
         ))}
@@ -40,7 +41,10 @@ export function EventMarquee() {
             className="flex items-center gap-3 whitespace-nowrap px-5 py-3 font-work-sans text-sm font-bold uppercase tracking-wide text-[#1C1917]"
             aria-hidden={i >= items.length}
           >
-            <span className="text-[#8C1515]">✳</span>
+            <span
+              aria-hidden
+              className="inline-block h-2 w-2 shrink-0 rotate-45 bg-[#8C1515]"
+            />
             {t}
           </span>
         ))}

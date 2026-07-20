@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import gsap from "gsap";
 import { disciplines } from "@/data/disciplines";
 import { Icon } from "@/lib/icons";
 
@@ -16,24 +17,61 @@ const CARD_COLORS = [
 export function DisciplineCarousel() {
   const [index, setIndex] = useState(0);
   const n = disciplines.length;
+  const cardRef = useRef<HTMLDivElement>(null);
+  const dirRef = useRef(1);
+  const firstRun = useRef(true);
 
-  const go = (dir: number) => setIndex((prev) => (prev + dir + n) % n);
+  const go = (dir: number) => {
+    dirRef.current = dir >= 0 ? 1 : -1;
+    setIndex((prev) => (prev + dir + n) % n);
+  };
+
+  const jumpTo = (i: number) => {
+    dirRef.current = i >= index ? 1 : -1;
+    setIndex(i);
+  };
 
   const active = disciplines[index];
   const color = CARD_COLORS[index % CARD_COLORS.length];
+
+  // Animate the card content whenever the active slide changes.
+  useEffect(() => {
+    if (firstRun.current) {
+      firstRun.current = false;
+      return;
+    }
+    const el = cardRef.current;
+    if (!el) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const targets = el.querySelectorAll<HTMLElement>("[data-slide-item]");
+    gsap.fromTo(
+      targets,
+      { x: dirRef.current * 40, opacity: 0 },
+      {
+        x: 0,
+        opacity: 1,
+        duration: 0.5,
+        stagger: 0.06,
+        ease: "power3.out",
+        overwrite: true,
+      }
+    );
+  }, [index]);
 
   return (
     <div>
       <div className="grid items-stretch gap-6 lg:grid-cols-[1fr_auto]">
         {/* Active card */}
         <div
-          className="relative flex min-h-64 flex-col justify-between overflow-hidden rounded-3xl p-8 transition-colors duration-300"
+          ref={cardRef}
+          className="relative flex min-h-64 flex-col justify-between overflow-hidden rounded-3xl p-8 transition-colors duration-500"
           style={{ backgroundColor: color.bg, color: color.text }}
           role="group"
           aria-roledescription="slide"
           aria-label={`${index + 1} of ${n}: ${active.name}`}
         >
-          <div className="flex items-start justify-between">
+          <div data-slide-item className="flex items-start justify-between">
             <span
               className="flex h-16 w-16 items-center justify-center rounded-2xl"
               style={{ backgroundColor: "rgba(0,0,0,0.12)" }}
@@ -44,7 +82,7 @@ export function DisciplineCarousel() {
               {String(index + 1).padStart(2, "0")}
             </span>
           </div>
-          <div>
+          <div data-slide-item>
             <h3 className="font-archivo-black text-4xl uppercase leading-none sm:text-5xl">
               {active.name}
             </h3>
@@ -83,7 +121,7 @@ export function DisciplineCarousel() {
             type="button"
             role="tab"
             aria-selected={i === index}
-            onClick={() => setIndex(i)}
+            onClick={() => jumpTo(i)}
             className={
               "min-h-9 rounded-full border-2 px-3 py-1 font-work-sans text-xs font-bold uppercase tracking-wide transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#8C1515] " +
               (i === index

@@ -137,9 +137,13 @@ To use real photography later:
 On top of the `create-next-app` defaults (Next.js 16 App Router, React 19,
 TypeScript, Tailwind CSS v4, ESLint):
 
-- **framer-motion** — purposeful, reduced-motion-aware animations (scroll
-  reveals, blueprint line drawing, carousel/accordion transitions, magnetic
-  buttons).
+- **framer-motion** — purposeful, reduced-motion-aware animations in Concepts 1
+  and 2 (scroll reveals, blueprint line drawing, magnetic buttons).
+- **gsap** — powers the richer motion in Concept 3: the page-enter curtain
+  transition (`PosterIntro`), the hero entrance timeline + floating shapes
+  (`PosterHero`), IntersectionObserver-driven scroll reveals (`GsapReveal`),
+  the animated discipline carousel, and the full-page mobile menu overlay
+  (`PosterNav`). All GSAP motion has reduced-motion and no-JS fallbacks.
 - **lucide-react** — accessible icon set. (Brand icons like Instagram were
   removed upstream, so a small inline `InstagramIcon` lives in
   `src/components/shared/BrandIcons.tsx`.)

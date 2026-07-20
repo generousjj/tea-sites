@@ -77,6 +77,16 @@
   }
 }
 
+/* Concept 3 GSAP reveals: ensure content is visible for reduced-motion users
+   (JS skips the animation and CSS forces the final state). */
+@media (prefers-reduced-motion: reduce) {
+  [data-c3-reveal],
+  .c3-hero-hidden {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
 /* Screen-reader-only utility */
 .sr-only {
   position: absolute;

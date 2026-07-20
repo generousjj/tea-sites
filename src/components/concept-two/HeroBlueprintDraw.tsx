@@ -24,7 +24,7 @@ export function HeroBlueprintDraw() {
         Fig. 01 — Experience section
       </div>
       <div className="absolute bottom-3 right-3 font-plex-mono text-[10px] uppercase tracking-widest text-[#F2B84B]">
-        Scale 1:∞
+        Scale N.T.S.
       </div>
       <svg
         viewBox="0 0 200 150"

@@ -65,7 +65,7 @@ export function BlueprintNav() {
             comingSoonMessage="Interest form coming soon"
             bubbleClassName="bg-[#F2B84B] text-[#071A2B]"
           >
-            Join →
+            Join
           </PlaceholderLink>
         </div>
 
