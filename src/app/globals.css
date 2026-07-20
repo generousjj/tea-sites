@@ -5,22 +5,102 @@
   --foreground: #171717;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  * {
+    /* Keep decorative overflow contained; concepts opt into overflow locally. */
+    min-width: 0;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Visible focus for keyboard users across every concept. */
+  :focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+    border-radius: 2px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ---- Font family helpers (fed by next/font CSS variables) ---- */
+.font-inter {
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+.font-manrope {
+  font-family: var(--font-manrope), system-ui, sans-serif;
+}
+.font-dm-serif {
+  font-family: var(--font-dm-serif), Georgia, serif;
+}
+.font-cormorant {
+  font-family: var(--font-cormorant), Georgia, serif;
+}
+.font-space-grotesk {
+  font-family: var(--font-space-grotesk), system-ui, sans-serif;
+}
+.font-plex-sans {
+  font-family: var(--font-plex-sans), system-ui, sans-serif;
+}
+.font-plex-mono {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+}
+.font-archivo-black {
+  font-family: var(--font-archivo-black), system-ui, sans-serif;
+}
+.font-work-sans {
+  font-family: var(--font-work-sans), system-ui, sans-serif;
+}
+.font-atkinson {
+  font-family: var(--font-atkinson), system-ui, sans-serif;
+}
+.font-bricolage {
+  font-family: var(--font-bricolage), system-ui, sans-serif;
+}
+
+/* Marquee (Concept 3). Disabled under reduced-motion via the safety net. */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Screen-reader-only utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Respect reduced-motion globally as a safety net; concepts also check it. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
