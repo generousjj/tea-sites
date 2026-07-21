@@ -34,9 +34,11 @@ export function LabProjects() {
                 }}
                 aria-hidden
               />
-              <span className="absolute left-3 top-3 rounded-full bg-[#F7F4EF]/90 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-[#8C1515]">
-                Example project
-              </span>
+              {p.placeholder && (
+                <span className="absolute left-3 top-3 rounded-full bg-[#F7F4EF]/90 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-[#8C1515]">
+                  Example project
+                </span>
+              )}
             </div>
 
             <div className="flex items-baseline justify-between gap-3">
@@ -135,10 +137,12 @@ export function LabProjects() {
               </ul>
             </div>
 
-            <p className="mt-6 border-t border-[#20201E]/10 pt-4 text-xs text-[#53565A]">
-              Example project shown for illustration. Real member work will
-              replace this content.
-            </p>
+            {active.placeholder && (
+              <p className="mt-6 border-t border-[#20201E]/10 pt-4 text-xs text-[#53565A]">
+                Example project shown for illustration. Real member work will
+                replace this content.
+              </p>
+            )}
           </div>
         )}
       </Modal>

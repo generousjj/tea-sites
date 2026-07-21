@@ -12,9 +12,13 @@ export const SPONSOR_INQUIRY_URL: string = PLACEHOLDER;
 export const LINKEDIN_URL: string = PLACEHOLDER;
 export const CONTACT_EMAIL: string = "hello@example.com"; // placeholder address
 
-/** Real handle supplied by the club; link target is a placeholder for now. */
+/** Real, live club Instagram. */
 export const INSTAGRAM_HANDLE = "@tea.stanford" as const;
-export const INSTAGRAM_URL: string = PLACEHOLDER;
+export const INSTAGRAM_URL: string = "https://www.instagram.com/tea.stanford/";
+
+/** Real portfolio of themed-entertainment project work. */
+export const PORTFOLIO_URL: string =
+  "https://www.judestjohn.com/projects/themed-entertainment";
 
 export function isPlaceholder(url: string): boolean {
   return url === PLACEHOLDER;

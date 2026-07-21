@@ -148,9 +148,11 @@ export function BlueprintProjects() {
               </ul>
             </div>
 
-            <p className="mt-6 border-t border-[#4DA3D9]/25 pt-4 font-plex-mono text-[10px] uppercase tracking-wide text-[#8ED8F8]/60">
-              Example drawing — placeholder content for layout only.
-            </p>
+            {active.placeholder && (
+              <p className="mt-6 border-t border-[#4DA3D9]/25 pt-4 font-plex-mono text-[10px] uppercase tracking-wide text-[#8ED8F8]/60">
+                Example drawing — placeholder content for layout only.
+              </p>
+            )}
           </div>
         )}
       </Modal>

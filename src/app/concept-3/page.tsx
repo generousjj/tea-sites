@@ -28,6 +28,7 @@ import {
   EVENTS_REGISTRATION_URL,
   INSTAGRAM_HANDLE,
   INSTAGRAM_URL,
+  PORTFOLIO_URL,
   CONTACT_EMAIL,
 } from "@/lib/links";
 import type { EventCategory } from "@/lib/types";
@@ -250,12 +251,23 @@ export default function ConceptThreePage() {
                 Project showcase
               </h2>
               <p className="mt-4 max-w-2xl text-lg font-medium text-[#1C1917]/80">
-                Tap a card to expand. Example projects showing how members could
-                document competitions, prototypes, and campus experiences.
+                Tap a card to expand. Real member work spanning attraction-design
+                competitions, interactive experiences, and illusion R&amp;D.
               </p>
             </GsapReveal>
             <div className="mt-10">
               <PosterProjects />
+            </div>
+            <div className="mt-10">
+              <a
+                href={PORTFOLIO_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border-4 border-[#1C1917] bg-[#1C1917] px-6 py-3 font-work-sans text-sm font-bold uppercase tracking-widest text-[#FFF4DF] transition hover:-translate-y-0.5 hover:bg-[#F05A47] hover:text-[#1C1917]"
+              >
+                View full portfolio
+                <Icon name="arrow-up-right" className="h-4 w-4" />
+              </a>
             </div>
           </div>
         </section>
@@ -494,8 +506,8 @@ export default function ConceptThreePage() {
           <div className="mt-10 border-t border-[#FFF4DF]/20 pt-6 text-xs font-medium leading-relaxed text-[#FFF4DF]/60">
             <p>
               © {year} {ORG.short}. A student-run organization — not officially
-              endorsed by Stanford University or any entertainment company. All
-              events and projects shown are illustrative placeholders.
+              endorsed by Stanford University or any entertainment company.
+              Events shown are illustrative placeholders.
             </p>
           </div>
         </div>

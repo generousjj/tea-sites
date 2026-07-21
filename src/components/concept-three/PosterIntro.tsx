@@ -38,7 +38,6 @@ export function PosterIntro() {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
         onComplete: () => {
-          signalDone();
           unlock();
           setDone(true);
         },
@@ -69,6 +68,10 @@ export function PosterIntro() {
             duration: 0.7,
             ease: "power4.inOut",
             stagger: 0.08,
+            // Let the hero begin animating in the instant the curtain starts
+            // lifting, so its entrance reads as continuous with the reveal
+            // instead of starting after a noticeable pause.
+            onStart: signalDone,
           },
           "-=0.05"
         );

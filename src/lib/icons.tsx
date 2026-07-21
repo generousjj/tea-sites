@@ -11,6 +11,7 @@ import {
   Presentation,
   Compass,
   Users,
+  ArrowUpRight,
   type LucideIcon,
   HelpCircle,
 } from "lucide-react";
@@ -28,6 +29,7 @@ const ICONS: Record<string, LucideIcon> = {
   presentation: Presentation,
   compass: Compass,
   users: Users,
+  "arrow-up-right": ArrowUpRight,
 };
 
 /** Resolve an icon name from the data files to a Lucide component. */

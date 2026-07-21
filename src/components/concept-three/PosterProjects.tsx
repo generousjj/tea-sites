@@ -90,9 +90,11 @@ export function PosterProjects() {
                         ))}
                       </ul>
                     </div>
-                    <p className="mt-4 font-work-sans text-xs font-semibold uppercase tracking-wide text-[#1C1917]/50">
-                      Example project — placeholder content
-                    </p>
+                    {p.placeholder && (
+                      <p className="mt-4 font-work-sans text-xs font-semibold uppercase tracking-wide text-[#1C1917]/50">
+                        Example project — placeholder content
+                      </p>
+                    )}
                   </div>
                 </motion.div>
               )}
