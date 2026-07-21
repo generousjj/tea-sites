@@ -4,6 +4,7 @@ import { useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
 import { projects } from "@/data/projects";
+import { asset } from "@/lib/asset";
 
 const ACCENTS = ["#F05A47", "#F4C95D", "#69C5D8", "#8C1515", "#38233D", "#F05A47"];
 
@@ -12,7 +13,7 @@ export function PosterProjects() {
   const reduce = useReducedMotion();
 
   return (
-    <div className="grid gap-4 md:grid-cols-2">
+    <div className="grid items-start gap-4 md:grid-cols-2">
       {projects.map((p, i) => {
         const isOpen = open === i;
         const accent = ACCENTS[i % ACCENTS.length];
@@ -64,14 +65,32 @@ export function PosterProjects() {
                   className="overflow-hidden"
                 >
                   <div className="border-t-4 border-[#1C1917] px-5 pb-6 pt-4">
-                    <div
-                      className="mb-4 h-28 w-full rounded-xl"
-                      style={{
-                        background: `repeating-linear-gradient(45deg, ${accent} 0 12px, #1C1917 12px 24px)`,
-                        opacity: 0.9,
-                      }}
-                      aria-hidden
-                    />
+                    {p.image ? (
+                      <div className="mb-4 aspect-[16/10] w-full overflow-hidden rounded-xl border-4 border-[#1C1917] bg-[#FFF4DF]">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={asset(p.image)}
+                          alt={p.title}
+                          loading="lazy"
+                          className="h-full w-full"
+                          style={{
+                            objectFit: p.imageFit ?? "cover",
+                            objectPosition: p.imagePosition ?? "center",
+                          }}
+                        />
+                      </div>
+                    ) : (
+                      <div
+                        className="mb-4 flex aspect-[16/10] w-full items-center justify-center overflow-hidden rounded-xl border-4 border-[#1C1917]"
+                        style={{
+                          background: `repeating-linear-gradient(45deg, ${accent} 0 12px, #1C1917 12px 24px)`,
+                        }}
+                      >
+                        <span className="rounded-full bg-[#FFF4DF] px-4 py-1.5 font-work-sans text-xs font-bold uppercase tracking-widest text-[#1C1917]">
+                          In development
+                        </span>
+                      </div>
+                    )}
                     <p className="text-[15px] leading-relaxed text-[#1C1917]">
                       {p.description}
                     </p>

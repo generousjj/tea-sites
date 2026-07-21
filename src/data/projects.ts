@@ -10,6 +10,9 @@ export const projects: Project[] = [
     title: "Starport: Intergalactic Delivery Training",
     category: "Attraction Design Competition",
     year: "2026",
+    image: "/projects/starport.jpg",
+    imageFit: "cover",
+    imagePosition: "center calc(50% - 35px)",
     description:
       "A story-driven trackless dark ride for Swamp Thrills 2026: a 16-passenger spacecraft is split by a giant nudibranch and sent through two parallel missions — Crustallos (a diamond storm) and Incendium (a collapsing star) — before reuniting for a final delivery. The attraction spans three floors with paired lifts and converter transfers, a wormhole-inspired audio chamber, projection and hologram effects, and a modeled throughput of 560 riders per hour. Awarded second place with Distinction in Attraction Overview, Schematics & Models, Attraction Story, and Concept Visuals.",
     disciplines: [
@@ -25,6 +28,8 @@ export const projects: Project[] = [
     title: "Pilot Knob Lava Loop",
     category: "Attraction Design Competition",
     year: "Recent",
+    image: "/projects/lavaloop.png",
+    imageFit: "contain",
     description:
       "A solo Parkitecture entry: a fully accessible boardwalk loop at Morgan's Wonderland that drops guests into an extreme volcanic biome of vents, tubes, and fractured magma crust. Interactive interpretive stations turn Central Texas volcanic geology into hands-on play, leading with inclusion and safety (one continuous accessible loop, multi-height interactives, calm zones, high-contrast wayfinding), research and education, and immersion. Winner of the Innovation and Adventure Design Award.",
     disciplines: [
@@ -40,6 +45,9 @@ export const projects: Project[] = [
     title: "Talking Maxwell",
     category: "Interactive Experience",
     year: "Recent",
+    image: "/projects/maxwell.jpg",
+    imageFit: "cover",
+    imagePosition: "center 30%",
     description:
       "A Bottango animatronic kit turned into a fully interactive character. The mechatronic skull is wired into the OpenAI API for real-time conversational responses, with smart servo control keeping the jaw, eyes, and head movements in sync with speech — guests can walk up and have an actual back-and-forth with Maxwell.",
     disciplines: [
@@ -54,6 +62,9 @@ export const projects: Project[] = [
     title: "Boba Bounce",
     category: "Interactive Experience",
     year: "Recent",
+    image: "/projects/bobabounce.jpg",
+    imageFit: "cover",
+    imagePosition: "center",
     description:
       "A themed kiosk experience and arcade-style game for Stanford's Chun Yang Tea, turning a storefront visit into a mini attraction. Custom characters were 3D-modeled and printed to sit on and hang off the existing kiosk, and the themed visuals, characters, and audio work together to pull in foot traffic and give the store a signature moment.",
     disciplines: [
@@ -77,6 +88,9 @@ export const projects: Project[] = [
     title: "Optical Illusions Lab",
     category: "Research & Prototyping",
     year: "In progress",
+    image: "/projects/levitation.jpg",
+    imageFit: "cover",
+    imagePosition: "center",
     description:
       "Ongoing research and fabrication into illusion-based effects for themed environments: levitation displays (studying patents toward large-object levitation with 2-axis motion), Pepper's Ghost workshops building and decorating classic haunted-mansion stands, and custom-designed caustic lenses that project intricate light patterns for dynamic lighting.",
     disciplines: ["Engineering", "Art & Animation", "Sound & Media"],

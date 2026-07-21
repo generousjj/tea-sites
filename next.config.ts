@@ -12,6 +12,11 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: path.resolve(__dirname),
   },
+  // Baked into the client bundle so plain <img> src values can be prefixed
+  // with the correct base path (empty in dev, /tea-sites on GitHub Pages).
+  env: {
+    NEXT_PUBLIC_BASE_PATH: isPages ? `/${repo}` : "",
+  },
   ...(isPages
     ? {
         output: "export",

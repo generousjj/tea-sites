@@ -88,7 +88,7 @@ export function PosterHero() {
         aria-hidden
       />
       <div
-        className="c3-hero-shape pointer-events-none absolute bottom-36 right-20 h-24 w-24 rotate-12 bg-[#69C5D8] sm:bottom-32 sm:right-24"
+        className="c3-hero-shape pointer-events-none absolute bottom-48 right-8 h-24 w-24 rotate-12 bg-[#69C5D8] sm:bottom-32 sm:right-24"
         aria-hidden
       />
       <div

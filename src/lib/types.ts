@@ -19,6 +19,10 @@ export type Project = {
   description: string;
   disciplines: string[];
   image?: string;
+  /** How the image fills its frame. Defaults to "cover". */
+  imageFit?: "cover" | "contain";
+  /** CSS object-position for cover crops (e.g. "center 30%"). */
+  imagePosition?: string;
   placeholder?: boolean;
 };
 
