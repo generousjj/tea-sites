@@ -46,15 +46,22 @@ export function PosterIntro() {
       tl.set(rootRef.current, { autoAlpha: 1 })
         .from(wordRef.current, {
           yPercent: 120,
+          opacity: 0,
           duration: 0.6,
           ease: "power4.out",
         })
-        .to(wordRef.current, {
-          yPercent: -120,
-          duration: 0.5,
-          ease: "power3.in",
-          delay: 0.35,
-        })
+        // Fully fade + lift the word out BEFORE the panels wipe, so it never
+        // lingers over the revealed page.
+        .to(
+          wordRef.current,
+          {
+            opacity: 0,
+            y: -60,
+            duration: 0.4,
+            ease: "power2.in",
+          },
+          "+=0.3"
+        )
         .to(
           panels,
           {
@@ -63,7 +70,7 @@ export function PosterIntro() {
             ease: "power4.inOut",
             stagger: 0.08,
           },
-          "-=0.2"
+          "-=0.05"
         );
     }, rootRef);
 

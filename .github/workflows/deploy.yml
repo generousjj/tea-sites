@@ -30,7 +30,9 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        run: npm ci
+        # Use install (not ci) so a lockfile drift in optional native deps
+        # (e.g. @emnapi/*) can't block the deploy.
+        run: npm install --no-audit --no-fund
 
       - name: Build (static export)
         env:
